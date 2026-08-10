@@ -1,4 +1,4 @@
-sim_out 
-*.vcd 
-results/*.hex
+sim_out
+*.vcd
+*.hex
  

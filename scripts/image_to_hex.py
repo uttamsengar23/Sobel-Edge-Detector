@@ -1,25 +1,32 @@
 from PIL import Image
+import sys
 
-# ============================================================
-# Configuration
-# ============================================================
-
-INPUT_IMAGE = "dataset/natural/mountain.png"
-OUTPUT_HEX = "images/image_rgb.hex"
 
 WIDTH = 256
 HEIGHT = 256
 
-# ============================================================
+
+if len(sys.argv) != 3:
+    print("Usage:")
+    print("python scripts/image_to_hex.py <input_image> <output_hex>")
+    sys.exit(1)
+
+
+INPUT_IMAGE = sys.argv[1]
+OUTPUT_HEX = sys.argv[2]
+
+
+# ------------------------------------------------------------
 # Load and resize image
-# ============================================================
+# ------------------------------------------------------------
 
 image = Image.open(INPUT_IMAGE).convert("RGB")
 image = image.resize((WIDTH, HEIGHT))
 
-# ============================================================
-# Convert RGB pixels to 24-bit hexadecimal
-# ============================================================
+
+# ------------------------------------------------------------
+# Convert RGB image to 24-bit HEX
+# ------------------------------------------------------------
 
 with open(OUTPUT_HEX, "w") as f:
 
@@ -28,11 +35,10 @@ with open(OUTPUT_HEX, "w") as f:
 
             r, g, b = image.getpixel((x, y))
 
-            # 24-bit RGB:
-            # RRRRRRRR GGGGGGGG BBBBBBBB
             rgb = (r << 16) | (g << 8) | b
 
             f.write(f"{rgb:06X}\n")
+
 
 print("-----------------------------------------")
 print("Input image :", INPUT_IMAGE)
