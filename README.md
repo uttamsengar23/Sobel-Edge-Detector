@@ -37,46 +37,13 @@ Verilog testbench**, with waveform-level verification performed using
 **GTKWave**.
 
 ---
-
-##  What Has Been Built
+## What Has Been Built
 
 The complete hardware processing pipeline is:
 
 <div align="center">
 
-```text
-                         RGB IMAGE
-                             │
-                             ▼
-                  ┌─────────────────────┐
-                  │   RGB → Grayscale   │
-                  │       24 → 8 bit    │
-                  └──────────┬──────────┘
-                             │
-                             ▼
-                  ┌─────────────────────┐
-                  │    3×3 Window       │
-                  │       Buffer        │
-                  └──────────┬──────────┘
-                             │
-                             ▼
-                  ┌─────────────────────┐
-                  │     Sobel Core      │
-                  │                     │
-                  │    Gx       Gy      │
-                  │      \     /        │
-                  │    |Gx| + |Gy|      │
-                  └──────────┬──────────┘
-                             │
-                             ▼
-                  ┌─────────────────────┐
-                  │      Threshold      │
-                  │     0x00 / 0xFF     │
-                  └──────────┬──────────┘
-                             │
-                             ▼
-                         EDGE MAP
-```
+<img src="docs/sobel_architecture.png" width="850">
 
 </div>
 
