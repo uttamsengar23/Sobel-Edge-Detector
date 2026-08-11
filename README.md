@@ -426,34 +426,19 @@ The final valid coordinate reaches:
 row = 254
 col = 254
 ```
-
 After the final output passes through the pipeline, the frame completion pulse is generated and streaming terminates.
+
 ---
-#  Automated Image Processing
+## Automated Image Processing
 
-Python scripts are used to automate the conversion between image files and Verilog HEX memory files.
+Python scripts provide an end-to-end automation flow between input images,
+Verilog memory files, RTL simulation, and the final Sobel edge output.
 
-```text
-                    Input PNG
-                        │
-                        ▼
-                image_to_hex.py
-                        │
-                        ▼
-                    RGB HEX
-                        │
-                        ▼
-                 RTL Simulation
-                        │
-                        ▼
-                    Edge HEX
-                        │
-                        ▼
-                hex_to_image.py
-                        │
-                        ▼
-                    Output PNG
-```
+<div align="center">
+
+<img src="docs/Automated Image Processing.png" width="1000">
+
+</div>
 
 The complete dataset can be processed automatically using:
 
@@ -461,8 +446,11 @@ The complete dataset can be processed automatically using:
 python scripts/run_dataset.py
 ```
 
-This automation eliminates the need to manually change the input image and repeat the image-to-HEX and HEX-to-image conversion process for every test.
+This automation eliminates the need to manually change image paths, regenerate
+HEX files, run the RTL simulation, and convert every output back to an image.
 
+The same flow can process multiple image categories automatically, including
+natural scenes, objects, faces, geometric shapes, text, and circuit images.
 ---
 
 # Author
