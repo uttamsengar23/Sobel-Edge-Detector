@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ Verilog Sobel Edge Detector Accelerator
+#  Verilog Sobel Edge Detector Accelerator
 
 ### A Modular, Pipelined RTL Implementation of Sobel Edge Detection
 
@@ -18,7 +18,7 @@
 
 ---
 
-## 📌 Project Overview
+##  Project Overview
 
 Edge detection is a fundamental operation in computer vision used to identify
 boundaries, contours, and intensity transitions within an image.
@@ -41,7 +41,7 @@ Verilog testbench**, with waveform-level verification performed using
 
 ---
 
-## 🏗️ What Has Been Built
+##  What Has Been Built
 
 The complete hardware processing pipeline is:
 
@@ -85,7 +85,7 @@ The complete hardware processing pipeline is:
 
 ---
 
-## 🔑 Key Design Features
+##  Key Design Features
 
 - **256×256 RGB image processing**
 - **24-bit RGB input**
@@ -103,7 +103,7 @@ The complete hardware processing pipeline is:
 
 ---
 
-## 🧠 Sobel Edge Detection Theory
+##  Sobel Edge Detection Theory
 
 For every valid pixel position, the `window_buffer` generates a 3×3
 neighborhood:
@@ -157,7 +157,7 @@ The resulting binary values form the final Sobel edge map.
 
 ---
 
-## ⚙️ RTL Architecture
+##  RTL Architecture
 
 The design is divided into modular RTL blocks:
 
@@ -197,7 +197,7 @@ Edge Pixel
 
 ---
 
-## ⚡ Pipelined Datapath
+##  Pipelined Datapath
 
 The Sobel computation is implemented as a pipelined datapath.
 
@@ -322,7 +322,7 @@ The self-checking testbench verifies:
 - Frame completion
 - End-of-frame behavior
 
-### ✅ Final Verification Result
+###  Final Verification Result
 
 ```text
 Expected edge-valid outputs : 64,516
@@ -344,7 +344,7 @@ Detailed verification evidence is available in
 
 ---
 
-# 🖼️ Image Processing Results
+#  Image Processing Results
 
 The accelerator was tested on multiple categories of input images, including:
 
@@ -358,7 +358,7 @@ The accelerator was tested on multiple categories of input images, including:
 The following examples demonstrate that the same RTL processing pipeline can
 be applied to different types of images.
 
-## 🌄 Natural Image
+##  Natural Image
 
 <div align="center">
 
@@ -370,7 +370,7 @@ be applied to different types of images.
 
 ---
 
-## 🏠 Object
+##  Object
 
 <div align="center">
 
@@ -382,7 +382,7 @@ be applied to different types of images.
 
 ---
 
-## 👤 Face
+##  Face
 
 <div align="center">
 
@@ -394,7 +394,7 @@ be applied to different types of images.
 
 ---
 
-## 🔷 Geometric Shape
+##  Geometric Shape
 
 <div align="center">
 
@@ -406,7 +406,7 @@ be applied to different types of images.
 
 ---
 
-## 🔤 Text
+##  Text
 
 <div align="center">
 
@@ -424,7 +424,7 @@ Additional generated outputs are available in the
 
 ---
 
-# 🖥️ Simulation & Waveform Evidence
+#  Simulation & Waveform Evidence
 
 RTL simulation was performed using:
 
@@ -510,7 +510,7 @@ is generated and streaming terminates.
 
 ---
 
-# 🐍 Automated Image Processing
+#  Automated Image Processing
 
 Python scripts are used to automate the conversion between image files and
 Verilog HEX memory files.
@@ -548,7 +548,7 @@ repeat the image-to-HEX and HEX-to-image conversion process for every test.
 
 ---
 
-# 📁 Repository Structure
+#  Repository Structure
 
 ```text
 Sobel-EDGE-Detector/
@@ -602,90 +602,7 @@ Sobel-EDGE-Detector/
 └── README.md
 ```
 
----
-
-# 🛠️ Tools & Technologies
-
-| Category | Tools |
-|---|---|
-| Hardware Description | Verilog HDL |
-| RTL Design | Modular RTL + Pipelined Datapath |
-| Simulation | Icarus Verilog |
-| Waveform Analysis | GTKWave |
-| Image Processing | Python + Pillow |
-| Automation | Python |
-| Version Control | Git + GitHub |
-
----
-
-# 📈 Project Status
-
-## Completed
-
-- [x] Modular Verilog RTL architecture
-- [x] RGB-to-grayscale conversion
-- [x] 3×3 sliding-window generation
-- [x] Sobel Gx/Gy computation
-- [x] Hardware-efficient gradient magnitude
-- [x] Configurable thresholding
-- [x] Raster-order pixel streaming
-- [x] Row/column coordinate tracking
-- [x] Pipeline alignment
-- [x] Frame completion detection
-- [x] Self-checking RTL verification
-- [x] 64,516 / 64,516 valid-output verification
-- [x] Multi-image automated processing
-- [x] GTKWave waveform verification
-- [x] GitHub documentation
-
-## Future Work
-
-- [ ] FPGA synthesis
-- [ ] FPGA resource utilization analysis
-- [ ] Timing analysis
-- [ ] FPGA board implementation
-- [ ] Hardware-level image-streaming validation
-- [ ] Throughput and performance benchmarking
-
----
-
-# 💡 Engineering Takeaways
-
-This project demonstrates the conversion of a computer-vision algorithm into a
-structured digital hardware architecture.
-
-The design combines:
-
-```text
-Image Processing
-       │
-       ▼
-Algorithm Decomposition
-       │
-       ▼
-Modular RTL Design
-       │
-       ▼
-Streaming Datapath
-       │
-       ▼
-Pipelining
-       │
-       ▼
-Coordinate Alignment
-       │
-       ▼
-Self-Checking Verification
-```
-
-The project therefore brings together:
-
-**Digital Design + Verilog RTL + Pipelining + Image Processing +
-Verification + Python Automation**
-
----
-
-# 👨‍💻 Author
+# Author
 
 <div align="center">
 
@@ -701,7 +618,7 @@ Interested in:
 
 ---
 
-## ⭐ Project Highlight
+##  Project Highlight
 
 > **A modular and pipelined Verilog implementation of Sobel edge detection,
 > functionally verified on 256×256 RGB images with 64,516/64,516 valid-output
@@ -709,11 +626,3 @@ Interested in:
 > verification.**
 
 ---
-
-### 📌 Current Scope
-
-The current implementation focuses on **RTL design and functional
-verification**.
-
-FPGA synthesis, timing/resource analysis, and physical-board validation are
-planned as the next stage of development.
