@@ -11,38 +11,45 @@
 
 ---
 
-## Project Overview: 
-Edge detection is a fundamental operation in computer vision used to identify
-boundaries, contours, and structural features in an image.
-Software implementations of image processing are flexible, but many applications benefit from dedicated hardware pipelines that can process pixels continuously with predictable latency.
-This project explores that hardware approach by implementing a **Sobel Edge Detector entirely at RTL level using Verilog**.
-The design accepts a 24-bit RGB image, converts it to grayscale, generates a 3×3 sliding window, computes the Sobel X/Y gradients, calculates a hardware-efficient
-gradient magnitude, and produces a binary edge map. The RTL was verified using a self-checking testbench and tested across multiple categories of input images.
----
+## Project Overview
 
-## What has been built
+This project implements a **hardware Sobel Edge Detector Accelerator** using
+modular Verilog RTL.
+
+The design converts RGB image pixels to grayscale, generates a 3×3 sliding
+window, computes horizontal and vertical Sobel gradients, calculates the
+gradient magnitude, and produces a binary edge map.
+
+### Processing Pipeline
 
 ```text
-     RGB Image
-         │
-         ▼
-┌─────────────────┐
-│ RGB → Grayscale │
-└────────┬────────┘
-         ▼
-┌─────────────────┐
-│  3×3 Window     │
-│     Buffer      │
-└────────┬────────┘
-         ▼
-┌─────────────────┐
-│   Sobel Core    │
-│    Gx / Gy      │
-│  |Gx| + |Gy|    │
-└────────┬────────┘
-         ▼
-┌─────────────────┐
-│   Threshold     │
-└────────┬────────┘
-         ▼
-     Edge Map
+                         RGB IMAGE
+                             │
+                             ▼
+                  ┌─────────────────────┐
+                  │   RGB → Grayscale   │
+                  │       24 → 8 bit    │
+                  └──────────┬──────────┘
+                             │
+                             ▼
+                  ┌─────────────────────┐
+                  │    3×3 Window       │
+                  │       Buffer        │
+                  └──────────┬──────────┘
+                             │
+                             ▼
+                  ┌─────────────────────┐
+                  │     Sobel Core      │
+                  │    Gx       Gy      │
+                  │      \     /        │
+                  │    |Gx| + |Gy|      │
+                  └──────────┬──────────┘
+                             │
+                             ▼
+                  ┌─────────────────────┐
+                  │      Threshold      │
+                  │     0x00 / 0xFF     │
+                  └──────────┬──────────┘
+                             │
+                             ▼
+                         EDGE MAP
