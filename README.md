@@ -451,6 +451,7 @@ HEX files, run the RTL simulation, and convert every output back to an image.
 
 The same flow can process multiple image categories automatically, including
 natural scenes, objects, faces, geometric shapes, text, and circuit images.
+
 ---
 
 # Author
