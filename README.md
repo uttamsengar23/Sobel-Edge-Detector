@@ -297,18 +297,6 @@ Expected Valid Outputs
 
 254 × 254 = 64,516
 ```
-
-### Testbench Checks
-
-The self-checking testbench verifies:
-- **Reset & initialization**
-- **Start / streaming control**
-- **`edge_valid` generation**
-- **Output coordinate validation**
-- **Valid output count**
-- **Final coordinate verification**
-- **Frame completion & end-of-frame behavior**
-  
 Detailed verification evidence is available in
 [`verification/README.md`](verification/README.md).
 
@@ -321,7 +309,7 @@ natural scenes, objects, faces, shapes, text, and circuit images.
 
 Each example shows the **original input image** alongside its corresponding
 **Sobel edge-detected output**.
-
+<div align="center">
 <table>
 <tr>
 <th>Original Image</th>
@@ -413,6 +401,7 @@ Each example shows the **original input image** alongside its corresponding
 </tr>
 
 </table>
+</div>
 
 > **Result:** The same RTL Sobel processing pipeline was applied across
 > different image categories, producing corresponding binary edge maps.
