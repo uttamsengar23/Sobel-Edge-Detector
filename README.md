@@ -413,12 +413,8 @@ Additional generated outputs are available in the
 
 #  Simulation & Waveform Evidence
 
-RTL simulation was performed using:
-
-**Icarus Verilog + GTKWave**
-
-The repository contains waveform captures demonstrating the major stages of
-the accelerator operation.
+RTL simulation was performed using: **Icarus Verilog + GTKWave**
+The repository contains waveform captures demonstrating the major stages of the accelerator operation.
 
 ## 1. High-Level Testbench Control
 
