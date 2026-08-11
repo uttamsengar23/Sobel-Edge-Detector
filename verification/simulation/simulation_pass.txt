@@ -1,0 +1,18 @@
+===================================================
+SOBEL EDGE DETECTOR RTL VERIFICATION
+===================================================
+
+Image Resolution : 256 x 256
+Valid Region     : [1:254] x [1:254]
+
+Expected Pulses  : 64516
+Observed Pulses  : 64516
+
+Row Range        : [1,254]
+Column Range     : [1,254]
+
+PASS: pulse count
+PASS: coordinate range
+
+FRAME DONE
+===================================================
