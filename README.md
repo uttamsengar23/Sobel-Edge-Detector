@@ -43,7 +43,7 @@ The complete hardware processing pipeline is:
 
 <div align="center">
 
-<img src="docs/sobel_architecture.png" width="850">
+<img src="docs/sobelarchitecture.png" width="850">
 
 </div>
 
