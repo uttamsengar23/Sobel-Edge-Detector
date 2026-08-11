@@ -17,9 +17,7 @@ boundaries, contours, and structural features in an image.
 Software implementations of image processing are flexible, but many applications benefit from dedicated hardware pipelines that can process pixels continuously with predictable latency.
 This project explores that hardware approach by implementing a **Sobel Edge Detector entirely at RTL level using Verilog**.
 The design accepts a 24-bit RGB image, converts it to grayscale, generates a 3×3 sliding window, computes the Sobel X/Y gradients, calculates a hardware-efficient
-gradient magnitude, and produces a binary edge map.
-
-The RTL was verified using a self-checking testbench and tested across multiple categories of input images.
+gradient magnitude, and produces a binary edge map. The RTL was verified using a self-checking testbench and tested across multiple categories of input images.
 ---
 
 ## What has been built
