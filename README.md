@@ -3,9 +3,6 @@
 #  Verilog Sobel Edge Detector Accelerator
 
 ### A Modular, Pipelined RTL Implementation of Sobel Edge Detection
-
-**256×256 RGB Images · Verilog RTL · Self-Checking Verification · Python Automation**
-
 <br>
 
 ![Verilog](https://img.shields.io/badge/HDL-Verilog-blue)
