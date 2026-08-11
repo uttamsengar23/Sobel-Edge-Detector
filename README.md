@@ -114,15 +114,13 @@ p20  p21  p22
 The horizontal Sobel gradient is calculated as:
 
 ```text
-Gx = (p02 + 2p12 + p22)
-     - (p00 + 2p10 + p20)
+Gx = (p02 + 2p12 + p22)  - (p00 + 2p10 + p20)
 ```
 
 The vertical Sobel gradient is calculated as:
 
 ```text
-Gy = (p20 + 2p21 + p22)
-     - (p00 + 2p01 + p02)
+Gy = (p20 + 2p21 + p22)- (p00 + 2p01 + p02)
 ```
 
 The gradient magnitude is approximated using:
