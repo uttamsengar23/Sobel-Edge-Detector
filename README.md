@@ -1,4 +1,4 @@
-# ⚡ Verilog Sobel Edge Detector Accelerator
+# Verilog Sobel Edge Detector Accelerator
 
 > A modular, pipelined RTL implementation of real-time Sobel edge detection for 256×256 RGB images, designed and functionally verified using Verilog simulation.
 
@@ -10,7 +10,7 @@
 
 ---
 
-## 📌 Project Overview
+## Project Overview: 
 
 Edge detection is a fundamental operation in computer vision used to identify
 boundaries, contours, and structural features in an image.
@@ -31,7 +31,7 @@ multiple categories of input images.
 
 ---
 
-## 🎯 What Was Built
+## What has been built
 
 ```text
 RGB Image
