@@ -414,6 +414,7 @@ Additional generated outputs are available in the
 #  Simulation & Waveform Evidence
 
 RTL simulation was performed using: **Icarus Verilog + GTKWave**
+
 The repository contains waveform captures demonstrating the major stages of the accelerator operation.
 
 ## 1. High-Level Testbench Control
@@ -431,9 +432,7 @@ This waveform demonstrates:
 - Start command
 - Streaming activity
 - `edge_valid` generation
-- Frame processing
-- Frame completion
-
+- Frame processing and completion
 ---
 
 ## 2. Sobel Datapath Processing
@@ -454,13 +453,11 @@ p20  p21  p22
 
 along with:
 
-- `gx`
-- `gy`
+- `gx`,  `gy`
 - `gradient_mag`
 - `gradient_valid`
 
-The waveform provides direct RTL-level evidence that pixel neighborhoods are
-being processed and corresponding Sobel gradients are being generated.
+The waveform provides direct RTL-level evidence that pixel neighborhoods are being processed and corresponding Sobel gradients are being generated.
 
 ---
 
@@ -488,14 +485,11 @@ row = 254
 col = 254
 ```
 
-After the final output passes through the pipeline, the frame completion pulse
-is generated and streaming terminates.
-
+After the final output passes through the pipeline, the frame completion pulse is generated and streaming terminates.
 ---
 #  Automated Image Processing
 
-Python scripts are used to automate the conversion between image files and
-Verilog HEX memory files.
+Python scripts are used to automate the conversion between image files and Verilog HEX memory files.
 
 ```text
                     Input PNG
@@ -525,8 +519,7 @@ The complete dataset can be processed automatically using:
 python scripts/run_dataset.py
 ```
 
-This automation eliminates the need to manually change the input image and
-repeat the image-to-HEX and HEX-to-image conversion process for every test.
+This automation eliminates the need to manually change the input image and repeat the image-to-HEX and HEX-to-image conversion process for every test.
 
 ---
 
