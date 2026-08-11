@@ -479,7 +479,6 @@ After the final output passes through the pipeline, the frame completion pulse
 is generated and streaming terminates.
 
 ---
-
 #  Automated Image Processing
 
 Python scripts are used to automate the conversion between image files and
