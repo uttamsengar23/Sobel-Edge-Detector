@@ -4,8 +4,8 @@
 
 ![Verilog](https://img.shields.io/badge/HDL-Verilog-blue)
 ![RTL](https://img.shields.io/badge/Design-RTL-orange)
-
 ![Simulation](https://img.shields.io/badge/Simulation-Icarus%20Verilog-green)
+
 ![Waveform](https://img.shields.io/badge/Verification-GTKWave-purple)
 ![Python](https://img.shields.io/badge/Automation-Python-yellow)
 
