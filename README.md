@@ -540,21 +540,7 @@ repeat the image-to-HEX and HEX-to-image conversion process for every test.
 
 ### Uttam Sengar
 
-**B.Tech — Electronics & VLSI Engineering**
-
-Interested in:
-
-**RTL Design · Digital VLSI · FPGA Architecture · Hardware Acceleration**
+**Electronics & VLSI Engineering-NITJ**
 
 </div>
 
----
-
-##  Project Highlight
-
-> **A modular and pipelined Verilog implementation of Sobel edge detection,
-> functionally verified on 256×256 RGB images with 64,516/64,516 valid-output
-> verification, automated multi-image testing, and RTL waveform-level
-> verification.**
-
----
