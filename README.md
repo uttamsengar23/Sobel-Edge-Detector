@@ -127,31 +127,6 @@ The design is divided into modular RTL blocks:
 | `threshold.v` | Converts gradient magnitude to binary edge output |
 | `sobel_edge_detector.v` | Top-level integration, streaming and control |
 
-### Dataflow
-
-```text
-Image Memory
-     │
-     ▼
-RGB → Grayscale
-     │
-     ▼
-3×3 Window Buffer
-     │
-     ▼
-Sobel Core
-     │
-     ├── Gx
-     ├── Gy
-     └── |Gx| + |Gy|
-     │
-     ▼
-Threshold
-     │
-     ▼
-Edge Pixel
-```
-
 ---
 
 ##  Pipelined Datapath
