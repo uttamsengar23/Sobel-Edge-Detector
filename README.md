@@ -84,20 +84,15 @@ The complete hardware processing pipeline is:
 
 ##  Key Design Features
 
-- **256×256 RGB image processing**
-- **24-bit RGB input**
-- **8-bit grayscale datapath**
-- **3×3 sliding-window architecture**
-- **Sobel X/Y gradient computation**
-- **Hardware-efficient `|Gx| + |Gy|` gradient magnitude**
-- **Pipelined datapath**
-- **Raster-order pixel streaming**
-- **Row/column output-coordinate tracking**
+- **256×256, 24-bit RGB image processing**
+- **8-bit grayscale + 3×3 sliding window**
+- **Sobel Gx/Gy with `|Gx| + |Gy|` magnitude**
+- **4-cycle pipelined datapath**
+- **Raster-order streaming & coordinate tracking**
 - **Configurable edge threshold**
 - **Self-checking Verilog testbench**
-- **Automated multi-image processing using Python**
-- **RTL waveform verification using GTKWave**
-
+- **Multi-image Python automation**
+- **GTKWave RTL waveform verification**
 ---
 
 ##  Sobel Edge Detection Theory
@@ -236,7 +231,7 @@ that `out_row` and `out_col` remain aligned with `edge_valid`.
 
 ---
 
-## 🎛️ Control & Streaming
+##  Control & Streaming
 
 The top-level design uses **counter- and flag-based sequential control** rather
 than an explicit FSM.
@@ -268,7 +263,7 @@ This allows the image to flow continuously through the processing pipeline.
 
 ---
 
-# 🔬 RTL Verification
+#  RTL Verification
 
 The accelerator was verified using a **self-checking Verilog testbench**.
 
@@ -306,34 +301,14 @@ Expected Valid Outputs
 ### Testbench Checks
 
 The self-checking testbench verifies:
-
-- Reset and initialization
-- Start and streaming behavior
-- `edge_valid` generation
-- Output row range
-- Output column range
-- Number of valid edge outputs
-- Final output coordinate
-- Frame completion
-- End-of-frame behavior
-
-###  Final Verification Result
-
-```text
-Expected edge-valid outputs : 64,516
-Observed edge-valid outputs : 64,516
-
-Valid row range    : 1 → 254
-Valid column range : 1 → 254
-
-Final valid coordinate : (254, 254)
-
-Verification Result : PASS
-```
-
-The observed output count exactly matches the mathematically expected number
-of valid 3×3 Sobel windows.
-
+- **Reset & initialization**
+- **Start / streaming control**
+- **`edge_valid` generation**
+- **Output coordinate validation**
+- **Valid output count**
+- **Final coordinate verification**
+- **Frame completion & end-of-frame behavior**
+  
 Detailed verification evidence is available in
 [`verification/README.md`](verification/README.md).
 
