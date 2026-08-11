@@ -116,8 +116,7 @@ G = √(Gx² + Gy²)
 
 This hardware-friendly approximation avoids expensive multiplication and
 square-root operations, reducing computational complexity in the RTL
-datapath.
-
+datapath. 
 The resulting gradient magnitude is compared against a configurable
 threshold to generate the binary edge output:
 
@@ -125,5 +124,4 @@ threshold to generate the binary edge output:
 Gradient ≥ Threshold  →  0xFF → Edge
 Gradient < Threshold  →  0x00 → Non-edge
 ```
-
 This produces the final binary edge map used for the output image.
