@@ -313,81 +313,109 @@ Detailed verification evidence is available in
 [`verification/README.md`](verification/README.md).
 
 ---
+# Image Processing Results
 
-#  Image Processing Results
+The RTL accelerator was tested across multiple image categories to demonstrate
+that the same hardware processing pipeline can extract meaningful edges from
+natural scenes, objects, faces, shapes, text, and circuit images.
 
-The accelerator was tested on multiple categories of input images, including:
+Each example shows the **original input image** alongside its corresponding
+**Sobel edge-detected output**.
 
-- Natural scenes
-- Objects
-- Faces
-- Geometric shapes
-- Text
-- Circuit-like images
+<table>
+<tr>
+<th>Original Image</th>
+<th>Sobel Edge Output</th>
+</tr>
 
-The following examples demonstrate that the same RTL processing pipeline can
-be applied to different types of images.
+<tr>
+<td align="center">
+<img src="dataset/natural/mountain.png" width="260">
+<br>
+<b>Mountain</b>
+</td>
 
-##  Natural Image
+<td align="center">
+<img src="results/natural/mountain_edge.png" width="260">
+<br>
+<b>Sobel Output</b>
+</td>
+</tr>
 
-<div align="center">
+<tr>
+<td align="center">
+<img src="dataset/objects/house.png" width="260">
+<br>
+<b>House</b>
+</td>
 
-<img src="results/natural/mountain_edge.png" width="380">
+<td align="center">
+<img src="results/objects/house_edge.png" width="260">
+<br>
+<b>Sobel Output</b>
+</td>
+</tr>
 
-**Mountain — Sobel Edge Output**
+<tr>
+<td align="center">
+<img src="dataset/faces/jacob.png" width="260">
+<br>
+<b>Face</b>
+</td>
 
-</div>
+<td align="center">
+<img src="results/faces/jacob_edge.png" width="260">
+<br>
+<b>Sobel Output</b>
+</td>
+</tr>
 
----
+<tr>
+<td align="center">
+<img src="dataset/shapes/circle.png" width="260">
+<br>
+<b>Geometric Shape</b>
+</td>
 
-##  Object
+<td align="center">
+<img src="results/shapes/circle_edge.png" width="260">
+<br>
+<b>Sobel Output</b>
+</td>
+</tr>
 
-<div align="center">
+<tr>
+<td align="center">
+<img src="dataset/text/sobel.png" width="260">
+<br>
+<b>Text</b>
+</td>
 
-<img src="results/objects/house_edge.png" width="380">
+<td align="center">
+<img src="results/text/sobel_edge.png" width="260">
+<br>
+<b>Sobel Output</b>
+</td>
+</tr>
 
-**House — Sobel Edge Output**
+<tr>
+<td align="center">
+<img src="dataset/circuits/and.png" width="260">
+<br>
+<b>Circuit</b>
+</td>
 
-</div>
+<td align="center">
+<img src="results/circuits/and_edge.png" width="260">
+<br>
+<b>Sobel Output</b>
+</td>
+</tr>
 
----
+</table>
 
-##  Face
-
-<div align="center">
-
-<img src="results/faces/jacob_edge.png" width="380">
-
-**Face — Sobel Edge Output**
-
-</div>
-
----
-
-##  Geometric Shape
-
-<div align="center">
-
-<img src="results/shapes/circle_edge.png" width="380">
-
-**Shape — Sobel Edge Output**
-
-</div>
-
----
-
-##  Text
-
-<div align="center">
-
-<img src="results/text/sobel_edge.png" width="380">
-
-**Text — Sobel Edge Output**
-
-</div>
-
-> **Note:** If your generated filenames are different, replace only the five
-> image paths above with the exact filenames present inside `results/`.
+> **Result:** The same RTL Sobel processing pipeline was applied across
+> different image categories, producing corresponding binary edge maps.
 
 Additional generated outputs are available in the
 [`results/`](results/) directory.
