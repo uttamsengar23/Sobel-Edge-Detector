@@ -211,34 +211,6 @@ The accelerator was verified using a **self-checking Verilog testbench**.
 
 The verification process checks both control behavior and the expected
 coverage of valid Sobel output pixels.
-
-### Verification Configuration
-
-| Parameter | Value |
-|---|---:|
-| Image Width | 256 pixels |
-| Image Height | 256 pixels |
-| Input Format | 24-bit RGB |
-| Grayscale Width | 8-bit |
-| Sobel Window | 3×3 |
-| Valid Row Range | 1–254 |
-| Valid Column Range | 1–254 |
-
-### Why 64,516 Valid Outputs?
-
-A complete 3×3 neighborhood is required to calculate a Sobel result.
-
-Therefore, the outermost one-pixel border of the image does not produce a
-centered Sobel output.
-
-```text
-Valid Rows    = 1 → 254
-Valid Columns = 1 → 254
-
-Expected Valid Outputs
-
-254 × 254 = 64,516
-```
 Detailed verification evidence is available in
 [`verification/README.md`](verification/README.md).
 
