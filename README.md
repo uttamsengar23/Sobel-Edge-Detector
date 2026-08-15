@@ -35,7 +35,9 @@ The complete hardware processing pipeline is:
 
 <div align="center">
 
-<img src="docs/sobelarchitecture.png" width="850">
+<a href="docs/sobel_pipeline_architecture.html">
+  <strong>🔗 View Pipelined Sobel Datapath Architecture</strong>
+</a>
 
 </div>
 
