@@ -39,7 +39,6 @@ The complete hardware processing pipeline is:
 </a>
 
 </div>
----
 
 ##  Key Design Features
 
