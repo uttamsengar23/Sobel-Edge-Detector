@@ -1,0 +1,109 @@
+<style>
+:root{
+  --c-blue-bg:#E6F1FB;--c-blue-bd:#378ADD;--c-blue-tx:#0C447C;
+  --c-teal-bg:#E1F5EE;--c-teal-bd:#1D9E75;--c-teal-tx:#085041;
+  --c-amber-bg:#FAEEDA;--c-amber-bd:#BA7517;--c-amber-tx:#633806;
+  --c-purple-bg:#EEEDFE;--c-purple-bd:#7F77DD;--c-purple-tx:#3C3489;
+  --c-green-bg:#EAF3DE;--c-green-bd:#639922;--c-green-tx:#27500A;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --c-blue-bg:#0C447C;--c-blue-bd:#85B7EB;--c-blue-tx:#E6F1FB;
+    --c-teal-bg:#085041;--c-teal-bd:#5DCAA5;--c-teal-tx:#E1F5EE;
+    --c-amber-bg:#633806;--c-amber-bd:#EF9F27;--c-amber-tx:#FAEEDA;
+    --c-purple-bg:#3C3489;--c-purple-bd:#AFA9EC;--c-purple-tx:#EEEDFE;
+    --c-green-bg:#27500A;--c-green-bd:#97C459;--c-green-tx:#EAF3DE;
+  }
+}
+.card{border-radius:12px;padding:10px 8px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:5px;min-height:150px;justify-content:flex-start;border:1px solid;}
+.badge{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;border:1px solid;}
+.pill{padding:2px 10px;border-radius:999px;font-size:12px;border:1px solid;width:fit-content;margin:0 auto;}
+</style>
+<h2 class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;">Sobel edge detector pipeline architecture: RGB image goes through grayscale conversion, 3x3 window buffering, Sobel core gradient computation, and thresholding to produce a binary edge map, with a control and coordinates block and total latency of 4 cycles.</h2>
+
+<div style="display:grid;grid-template-columns:repeat(6,1fr);gap:8px;align-items:start;">
+
+<div style="font-size:11px;letter-spacing:0.5px;color:var(--text-muted);text-transform:uppercase;text-align:center;">Input</div>
+<div></div><div></div><div></div><div></div>
+<div style="font-size:11px;letter-spacing:0.5px;color:var(--text-muted);text-transform:uppercase;text-align:center;">Output</div>
+
+<div class="card" style="background:var(--c-blue-bg);border-color:var(--c-blue-bd);color:var(--c-blue-tx);">
+  <i class="ti ti-photo" style="font-size:20px;" aria-hidden="true"></i>
+  <div style="font-weight:500;font-size:14px;">RGB image</div>
+  <div style="font-size:12px;opacity:.8;">256 x 256, 24-bit</div>
+  <div style="display:flex;gap:4px;margin-top:2px;">
+    <span style="width:10px;height:10px;border-radius:2px;background:#D14545;"></span>
+    <span style="width:10px;height:10px;border-radius:2px;background:#3F9E4D;"></span>
+    <span style="width:10px;height:10px;border-radius:2px;background:#3A6FC4;"></span>
+  </div>
+</div>
+
+<div class="card" style="background:var(--c-blue-bg);border-color:var(--c-blue-bd);color:var(--c-blue-tx);">
+  <div class="badge" style="border-color:var(--c-blue-bd);">1</div>
+  <i class="ti ti-adjustments-horizontal" style="font-size:20px;" aria-hidden="true"></i>
+  <div style="font-weight:500;font-size:14px;">Grayscale</div>
+  <div style="font-size:12px;opacity:.8;">24-bit to 8-bit</div>
+</div>
+
+<div class="card" style="background:var(--c-teal-bg);border-color:var(--c-teal-bd);color:var(--c-teal-tx);">
+  <div class="badge" style="border-color:var(--c-teal-bd);">2</div>
+  <i class="ti ti-grid-dots" style="font-size:20px;" aria-hidden="true"></i>
+  <div style="font-weight:500;font-size:14px;">Window buffer</div>
+  <div style="font-size:12px;opacity:.8;">3x3 sliding window</div>
+</div>
+
+<div class="card" style="background:var(--c-amber-bg);border-color:var(--c-amber-bd);color:var(--c-amber-tx);">
+  <div class="badge" style="border-color:var(--c-amber-bd);">3</div>
+  <i class="ti ti-vector" style="font-size:20px;" aria-hidden="true"></i>
+  <div style="font-weight:500;font-size:14px;">Sobel core</div>
+  <div style="font-size:12px;opacity:.8;">Gx and Gy</div>
+</div>
+
+<div class="card" style="background:var(--c-purple-bg);border-color:var(--c-purple-bd);color:var(--c-purple-tx);">
+  <div class="badge" style="border-color:var(--c-purple-bd);">4</div>
+  <i class="ti ti-gauge" style="font-size:20px;" aria-hidden="true"></i>
+  <div style="font-weight:500;font-size:14px;">Threshold</div>
+  <div style="font-size:12px;opacity:.8;">0x00 / 0xFF</div>
+</div>
+
+<div class="card" style="background:var(--c-green-bg);border-color:var(--c-green-bd);color:var(--c-green-tx);">
+  <i class="ti ti-photo-off" style="font-size:20px;" aria-hidden="true"></i>
+  <div style="font-weight:500;font-size:14px;">Edge map</div>
+  <div style="font-size:12px;opacity:.8;">256 x 256, binary</div>
+</div>
+
+<div></div>
+<div style="text-align:center;"><span class="pill" style="background:var(--c-blue-bg);border-color:var(--c-blue-bd);color:var(--c-blue-tx);">1 cycle</span></div>
+<div style="text-align:center;"><span class="pill" style="background:var(--c-teal-bg);border-color:var(--c-teal-bd);color:var(--c-teal-tx);">1 cycle</span></div>
+<div style="text-align:center;"><span class="pill" style="background:var(--c-amber-bg);border-color:var(--c-amber-bd);color:var(--c-amber-tx);">2 cycles</span></div>
+<div style="text-align:center;"><span class="pill" style="background:var(--c-purple-bg);border-color:var(--c-purple-bd);color:var(--c-purple-tx);">1 cycle</span></div>
+<div></div>
+
+</div>
+
+<div style="border:1px dashed var(--border-strong);border-radius:12px;padding:16px;margin-top:16px;">
+  <div style="font-weight:500;font-size:14px;text-align:center;margin-bottom:14px;color:var(--text-primary);">Control and coordinates</div>
+  <div style="display:flex;justify-content:space-around;flex-wrap:wrap;gap:12px;">
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <i class="ti ti-player-play" style="font-size:22px;color:var(--text-secondary);" aria-hidden="true"></i>
+      <div style="font-size:12px;color:var(--text-secondary);">Start</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <i class="ti ti-map-pin" style="font-size:22px;color:var(--text-secondary);" aria-hidden="true"></i>
+      <div style="font-size:12px;color:var(--text-secondary);text-align:center;">Row / col tracking</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <i class="ti ti-layout-grid" style="font-size:22px;color:var(--text-secondary);" aria-hidden="true"></i>
+      <div style="font-size:12px;color:var(--text-secondary);text-align:center;">Raster-order streaming</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+      <i class="ti ti-flag" style="font-size:22px;color:var(--text-secondary);" aria-hidden="true"></i>
+      <div style="font-size:12px;color:var(--text-secondary);">Frame done</div>
+    </div>
+  </div>
+</div>
+
+<div style="display:flex;align-items:center;gap:12px;border:1px solid var(--c-green-bd);border-radius:12px;padding:14px 16px;margin-top:12px;background:var(--c-green-bg);color:var(--c-green-tx);">
+  <i class="ti ti-clock" style="font-size:22px;" aria-hidden="true"></i>
+  <div style="font-weight:500;font-size:14px;">Total pipeline latency: 4 cycles (window in to edge out)</div>
+</div>
