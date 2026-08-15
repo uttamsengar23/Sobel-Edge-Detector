@@ -113,8 +113,8 @@ The repository contains waveform captures demonstrating the major stages of the 
 ## 1. High-Level Testbench Control
 
 <div align="center">
-
-<img src="waveforms/new_image.png" width="900">
+        
+<img src="waveforms/01_tb_control.png" width="900">
 
 </div>
 
