@@ -9,8 +9,8 @@ The design was verified using a self-checking Verilog testbench with 256×256 RG
 ## Verification Flow
 
 The complete RTL processing pipeline is:
-<div align="center">
 ```text
+<div align="center">
 RGB Input Image
        │
        ▼
@@ -30,13 +30,11 @@ Thresholding
        │
        ▼
 Edge Output
+</div>
 ```
 </div>
-
----
-<div align="center">
 ## Testbench Configuration
-
+<div align="center">
 | Parameter | Value |
 |---|---:|
 | Image Width | 256 pixels |
