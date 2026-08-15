@@ -124,7 +124,6 @@ The design is divided into modular RTL blocks:
 | `sobel_edge_detector.v` | Top-level integration, streaming and control |
 
 </div>
----
 
 ##  Pipelined Datapath
 
@@ -137,6 +136,7 @@ The Sobel computation is implemented as a pipelined datapath.
 </div>
 
 ### Pipeline Latency
+<div align="center">
 
 | Processing Stage | Module | Latency |
 |---|---|---:|
@@ -144,6 +144,8 @@ The Sobel computation is implemented as a pipelined datapath.
 | Sobel computation | `sobel_core` | 2 cycles |
 | Thresholding | `threshold` | 1 cycle |
 | **Total** | **Input window → edge output** | **4 cycles** |
+
+</div> 
 
 The output row and column coordinates are pipelined alongside the datapath so
 that `out_row` and `out_col` remain aligned with `edge_valid`.
