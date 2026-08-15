@@ -104,36 +104,39 @@ PASS
 The observed output count matches the mathematically expected number of valid 3×3 Sobel windows.
 
 ---
+#  Simulation & Waveform Evidence
 
-## Waveform Evidence
+RTL simulation was performed using: **Icarus Verilog + GTKWave**
 
-The waveform captures below provide RTL-level evidence of the main stages of the accelerator operation.
+The repository contains waveform captures demonstrating the major stages of the accelerator operation.
 
-### 1. High-Level Testbench Control
+## 1. High-Level Testbench Control
 
-**File:** `waveforms/01_tb_control.png`
+<div align="center">
 
-This waveform shows the high-level control behavior of the accelerator, including:
+<img src="verification/waveforms/01_tb_control.png" width="900">
+
+</div>
+
+This waveform demonstrates:
 
 - Clock operation
 - Reset release
 - Start command
 - Streaming activity
 - `edge_valid` generation
-- Frame processing
-- Frame completion
-
-The waveform demonstrates that the design enters its streaming processing phase and generates valid outputs during frame processing.
-
+- Frame processing and completion
 ---
 
-### 2. Sobel Datapath Processing
+## 2. Sobel Datapath Processing
 
-**File:** `waveforms/02_sobel_processing.png`
+<div align="center">
 
-This waveform provides the main datapath-level verification evidence.
+<img src="verification/waveforms/02_sobel_processing.png" width="900">
 
-It shows the 3×3 sliding pixel window:
+</div>
+
+This waveform shows the 3×3 sliding pixel window:
 
 ```text
 p00  p01  p02
@@ -143,43 +146,38 @@ p20  p21  p22
 
 along with:
 
-- `gx` — horizontal Sobel gradient
-- `gy` — vertical Sobel gradient
-- `gradient_mag` — gradient magnitude
-- `gradient_valid` — validity of the computed gradient
+- `gx`,  `gy`
+- `gradient_mag`
+- `gradient_valid`
 
-An example captured window demonstrates changing pixel values producing corresponding non-zero Sobel gradient values while `gradient_valid` is asserted.
-
-This provides direct waveform-level evidence that the Sobel datapath is actively processing the pixel neighborhood.
+The waveform provides direct RTL-level evidence that pixel neighborhoods are being processed and corresponding Sobel gradients are being generated.
 
 ---
 
-### 3. Frame Completion
+## 3. Frame Completion
 
-**File:** `waveforms/03_frame_completion.png`
+<div align="center">
 
-This waveform captures the end of frame processing and shows:
+<img src="verification/waveforms/03_frame_completion.png" width="900">
+
+</div>
+
+This waveform captures:
 
 - `edge_pixel`
 - `edge_valid`
-- `out_col`
 - `out_row`
+- `out_col`
 - `frame_done`
 - `streaming`
 
-The final valid row reaches:
+The final valid coordinate reaches:
 
 ```text
-FE = 254
+row = 254
+col = 254
 ```
-
-and the output column progresses to the final valid column:
-
-```text
-FE = 254
-```
-
-The frame completion pulse occurs after the final output processing, followed by the end of streaming activity.
+After the final output passes through the pipeline, the frame completion pulse is generated and streaming terminates.
 
 ---
 
