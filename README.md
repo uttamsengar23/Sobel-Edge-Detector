@@ -205,21 +205,7 @@ Each example shows the **original input image** alongside its corresponding
 <th>Original Image</th>
 <th>Sobel Edge Output</th>
 </tr>
-
-<tr>
-<td align="center">
-<img src="dataset/natural/mountain.png" width="260">
-<br>
-<b>Mountain</b>
-</td>
-
-<td align="center">
-<img src="results/natural/mountain_edge.png" width="260">
-<br>
-<b>Sobel Output</b>
-</td>
-</tr>
-
+  
 <tr>
 <td align="center">
 <img src="dataset/objects/house.png" width="260">
@@ -229,20 +215,6 @@ Each example shows the **original input image** alongside its corresponding
 
 <td align="center">
 <img src="results/objects/house_edge.png" width="260">
-<br>
-<b>Sobel Output</b>
-</td>
-</tr>
-
-<tr>
-<td align="center">
-<img src="dataset/faces/jacob.png" width="260">
-<br>
-<b>Face</b>
-</td>
-
-<td align="center">
-<img src="results/faces/jacob_edge.png" width="260">
 <br>
 <b>Sobel Output</b>
 </td>
