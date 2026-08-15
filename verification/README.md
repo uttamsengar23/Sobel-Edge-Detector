@@ -1,42 +1,41 @@
 # RTL Verification
 
-This directory contains the RTL simulation and waveform evidence for the Verilog-based Sobel Edge Detector Accelerator.
+This directory contains the **RTL simulation results and waveform evidence** for the Verilog-based Sobel Edge Detector Accelerator.
 
-The design was verified using a self-checking Verilog testbench with 256×256 RGB input images. Verification was performed at RTL level using Icarus Verilog and GTKWave.
+The accelerator was verified using a **self-checking Verilog testbench** with 256×256 RGB input images. RTL-level simulation was performed using **Icarus Verilog**, with waveform analysis carried out using **GTKWave**.
 
 ---
 
 ## Verification Flow
 
-The complete RTL processing pipeline is:
-```text
+The complete RTL image-processing pipeline is:
+
 <div align="center">
-RGB Input Image
-       │
-       ▼
-RGB to Grayscale
-       │
-       ▼
-3×3 Sliding Window
-       │
-       ▼
-Sobel X/Y Gradient Computation
-       │
-       ▼
-Gradient Magnitude
-       │
-       ▼
-Thresholding
-       │
-       ▼
+
+RGB Input Image  
+↓  
+RGB to Grayscale  
+↓  
+3×3 Sliding Window  
+↓  
+Sobel X/Y Gradient Computation  
+↓  
+Gradient Magnitude  
+↓  
+Thresholding  
+↓  
 Edge Output
+
 </div>
-```
-</div>
+
+---
+
 ## Testbench Configuration
+
 <div align="center">
+
 | Parameter | Value |
-|---|---:|
+|:---|---:|
 | Image Width | 256 pixels |
 | Image Height | 256 pixels |
 | Input Format | 24-bit RGB |
@@ -45,7 +44,9 @@ Edge Output
 | Valid Row Range | 1–254 |
 | Valid Column Range | 1–254 |
 | Expected Valid Outputs | 64,516 |
+
 </div>
+
 ---
 
 ## Why 64,516 Valid Outputs?
