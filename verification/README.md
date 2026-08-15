@@ -9,7 +9,7 @@ The design was verified using a self-checking Verilog testbench with 256×256 RG
 ## Verification Flow
 
 The complete RTL processing pipeline is:
-
+<div align="center">
 ```text
 RGB Input Image
        │
@@ -31,9 +31,10 @@ Thresholding
        ▼
 Edge Output
 ```
+</div>
 
 ---
-
+<div align="center">
 ## Testbench Configuration
 
 | Parameter | Value |
@@ -46,7 +47,7 @@ Edge Output
 | Valid Row Range | 1–254 |
 | Valid Column Range | 1–254 |
 | Expected Valid Outputs | 64,516 |
-
+</div>
 ---
 
 ## Why 64,516 Valid Outputs?
