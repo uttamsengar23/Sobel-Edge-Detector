@@ -17,24 +17,16 @@
 
 ##  Project Overview
 
-Edge detection is a fundamental operation in computer vision used to identify
-boundaries, contours, and intensity transitions within an image.
+Edge detection is a fundamental operation in computer vision used to identify boundaries, contours, and intensity transitions within an image. 
+This project implements the **Sobel edge-detection algorithm as a modular hardware datapath using Verilog RTL**.
 
-This project implements the **Sobel edge-detection algorithm as a modular
-hardware datapath using Verilog RTL**.
-
-Instead of treating Sobel filtering as a software-only image-processing
-operation, the algorithm is decomposed into dedicated hardware stages that
+Instead of treating Sobel filtering as a software-only image-processing operation, the algorithm is decomposed into dedicated hardware stages that
 process pixels in raster order through a streaming datapath.
 
-The accelerator accepts a **24-bit RGB image**, converts it to grayscale,
-generates a **3×3 sliding window**, computes the horizontal and vertical Sobel
-gradients, calculates a hardware-efficient gradient magnitude, and produces
-a binary edge map.
+The accelerator accepts a **24-bit RGB image**, converts it to grayscale, generates a **3×3 sliding window**, computes the horizontal and vertical Sobel
+gradients, calculates a hardware-efficient gradient magnitude, and produces a binary edge map.
 
-The complete design was functionally verified using a **self-checking
-Verilog testbench**, with waveform-level verification performed using
-**GTKWave**.
+The complete design was functionally verified using a **self-checking Verilog testbench**, with waveform-level verification performed using **GTKWave**.
 
 ---
 ## What Has Been Built
