@@ -112,6 +112,8 @@ The resulting binary values form the final Sobel edge map.
 
 The design is divided into modular RTL blocks:
 
+<div align="center">
+  
 | RTL Module | Responsibility |
 |---|---|
 | `image_memory.v` | Stores and provides 24-bit RGB image pixels |
@@ -121,6 +123,7 @@ The design is divided into modular RTL blocks:
 | `threshold.v` | Converts gradient magnitude to binary edge output |
 | `sobel_edge_detector.v` | Top-level integration, streaming and control |
 
+</div>
 ---
 
 ##  Pipelined Datapath
