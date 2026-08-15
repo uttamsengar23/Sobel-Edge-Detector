@@ -125,31 +125,11 @@ The design is divided into modular RTL blocks:
 
 The Sobel computation is implemented as a pipelined datapath.
 
-```text
-                     3×3 Window
-                          │
-                          ▼
-                 ┌─────────────────┐
-                 │     Stage 1     │
-                 │   Compute Gx    │
-                 │   Compute Gy    │
-                 └────────┬────────┘
-                          │
-                          ▼
-                 ┌─────────────────┐
-                 │     Stage 2     │
-                 │   |Gx| + |Gy|   │
-                 └────────┬────────┘
-                          │
-                          ▼
-                  Gradient Magnitude
-                          │
-                          ▼
-                     Threshold
-                          │
-                          ▼
-                     Edge Output
-```
+<div align="center">
+
+<img src="docs/sobel_pipelined_datapath.png" width="850">
+
+</div>
 
 ### Pipeline Latency
 
