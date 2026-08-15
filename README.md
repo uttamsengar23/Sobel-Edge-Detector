@@ -280,7 +280,7 @@ Verilog memory files, RTL simulation, and the final Sobel edge output.
 
 <div align="center">
 
-<img src="docs/Automated Image Processing.png" width="1000">
+<img src="docs/Automated process flow.png" width="1000">
 
 </div>
 
