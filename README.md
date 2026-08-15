@@ -32,15 +32,13 @@ The complete design was functionally verified using a **self-checking Verilog te
 ## What Has Been Built
 
 The complete hardware processing pipeline is:
-
 <div align="center">
 
-<a href="docs/sobel_pipeline_architecture.html">
-  <strong>🔗 View Pipelined Sobel Datapath Architecture</strong>
+<a href="https://uttamsengar23.github.io/Sobel-Edge-Detector/docs/sobel_pipeline_architecture.html">
+  <strong>🔗 View Interactive Pipelined Sobel Datapath Architecture</strong>
 </a>
 
 </div>
-
 ---
 
 ##  Key Design Features
