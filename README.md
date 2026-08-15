@@ -26,8 +26,6 @@ process pixels in raster order through a streaming datapath.
 The accelerator accepts a **24-bit RGB image**, converts it to grayscale, generates a **3×3 sliding window**, computes the horizontal and vertical Sobel
 gradients, calculates a hardware-efficient gradient magnitude, and produces a binary edge map.
 
-The complete design was functionally verified using a **self-checking Verilog testbench**, with waveform-level verification performed using **GTKWave**.
-
 ---
 ## What Has Been Built
 
@@ -289,13 +287,6 @@ The complete dataset can be processed automatically using:
 ```bash
 python scripts/run_dataset.py
 ```
-
-This automation eliminates the need to manually change image paths, regenerate
-HEX files, run the RTL simulation, and convert every output back to an image.
-
-The same flow can process multiple image categories automatically, including
-natural scenes, objects, faces, geometric shapes, text, and circuit images.
-
 ---
 
 # Author
