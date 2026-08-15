@@ -114,7 +114,7 @@ The repository contains waveform captures demonstrating the major stages of the 
 
 <div align="center">
 
-<img src="verification/waveforms/01_tb_control.png" width="900">
+<img src="waveforms/new_image.png" width="900">
 
 </div>
 
@@ -132,7 +132,7 @@ This waveform demonstrates:
 
 <div align="center">
 
-<img src="verification/waveforms/02_sobel_processing.png" width="900">
+<img src="waveforms/02_sobel_processing.png" width="900">
 
 </div>
 
@@ -158,7 +158,7 @@ The waveform provides direct RTL-level evidence that pixel neighborhoods are bei
 
 <div align="center">
 
-<img src="verification/waveforms/03_frame_completion.png" width="900">
+<img src="waveforms/03_frame_completion.png" width="900">
 
 </div>
 
